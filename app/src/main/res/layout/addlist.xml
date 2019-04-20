@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+
+
+    <!--String showRang;//
+    String  yearWeekTime;//
+    String name;//
+    String rank;//
+    String movieCd;//
+    String rankOldAndNew;//
+    String openDt;//
+    String audiCnt;//
+    String audiAcc;//-->
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:id="@+id/add_rankOldAndNew"
+       android:text="NEW"
+       android:textStyle="bold"
+       android:textSize="22sp"
+       android:layout_alignBottom="@id/add_name"
+       android:textColor="#fcdf07"/>
+
+    <TextView
+        android:textColor="#ff0303"
+        android:id="@+id/add_rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_toEndOf="@+id/add_rankOldAndNew"
+        android:layout_toRightOf="@+id/add_rankOldAndNew"
+        android:paddingLeft="8dp"
+        android:text="1"
+        android:textSize="25sp" />
+
+    <TextView
+        android:textColor="#f50404"
+        android:id="@+id/rs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/add_rank"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="4dp"
+        android:layout_toRightOf="@id/add_rank"
+        android:text=" 등"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+    <TextView
+        android:textColor="#0526fc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/rs"
+        android:text="제목 : "
+        android:textSize="16sp"
+        android:paddingLeft="8sp"
+        android:layout_alignBottom="@id/add_name"
+        android:textStyle="bold"
+        android:id="@+id/tv"
+        />
+
+    <TextView
+        android:textColor="#0515fc"
+        android:id="@+id/add_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="보헤미안 랩소디"
+        android:layout_toRightOf="@id/tv"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:textColor="#000"
+        android:id="@+id/rlrks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
+        android:text="상영 기간 : "
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:textColor="#e42020"
+        android:id="@+id/add_showRang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="125456464123456123"
+        android:layout_toRightOf="@id/rlrks"
+        android:layout_alignBottom="@id/rlrks"
+        android:textStyle="bold"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:textColor="#000"
+        android:id="@+id/rhksror"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlrks"
+        android:layout_marginTop="-1dp"
+        android:text="금일 관객 : "
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123131"
+        android:layout_toRightOf="@id/rhksror"
+        android:layout_alignBottom="@id/rhksror"
+        android:id="@+id/add_audiCnt"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#25de25"/>
+
+    <TextView
+        android:id="@+id/snwjr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rhksror"
+        android:layout_marginTop="0dp"
+        android:text="누적 관객 : "
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/add_audiAcc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1231321321233"
+        android:textStyle="bold"
+        android:layout_toRightOf="@id/snwjr"
+        android:layout_alignBottom="@id/snwjr"
+        android:textSize="16sp"
+        android:textColor="#22f182"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/add_rankOldAndNew"
+        android:layout_marginBottom="-25dp"
+        android:text="조회 날짜 : "
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:id="@+id/ayearWeekTime"/>
+
+    <TextView
+        android:id="@+id/add_yearWeekTime"
+        android:textColor="#ea4b3d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20111230~20120101"
+        android:layout_toRightOf="@id/ayearWeekTime"
+        android:layout_alignBottom="@id/ayearWeekTime"/>
+
+ <TextView
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="개봉일 : "
+     android:textColor="#000"
+     android:textStyle="bold"
+     android:layout_toLeftOf="@id/add_openDt"
+     android:layout_alignBottom="@id/add_audiAcc"/>
+    <TextView
+        android:id="@+id/add_openDt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentRight="true"
+        android:text="312321"
+        android:layout_alignBottom="@id/add_audiAcc"
+        android:textStyle="italic|bold"
+        android:textColor="#000"
+        android:textSize="20sp"/>
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
