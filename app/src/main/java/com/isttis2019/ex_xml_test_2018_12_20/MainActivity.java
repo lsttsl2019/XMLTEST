@@ -342,6 +342,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Toast.makeText(MainActivity.this, "검색 완료", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, menbers.size()+"", Toast.LENGTH_SHORT).show();
                             adatper.notifyDataSetChanged();
                         }
                     });

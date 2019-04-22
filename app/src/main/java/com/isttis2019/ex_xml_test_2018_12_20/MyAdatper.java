@@ -45,7 +45,7 @@ LayoutInflater inflater;
         TextView  yearWeekTime=convertView.findViewById(R.id.add_yearWeekTime);
         TextView name=convertView.findViewById(R.id.add_name);
         TextView rank=convertView.findViewById(R.id.add_rank);
-        TextView movieCd=convertView.findViewById(R.id.add_movieCd);
+
         TextView rankOldAndNew=convertView.findViewById(R.id.add_rankOldAndNew);
         TextView openDt=convertView.findViewById(R.id.add_openDt);
         TextView audiCnt=convertView.findViewById(R.id.add_audiCnt);
@@ -58,7 +58,7 @@ LayoutInflater inflater;
         yearWeekTime.setText(menber.yearWeekTime);
         name.setText(menber.name);
         rank.setText(menber.rank);
-        movieCd.setText(menber.movieCd);
+
         rankOldAndNew.setText(menber.rankOldAndNew);
         openDt.setText(menber.openDt);
         audiAcc.setText(menber.audiAcc);
