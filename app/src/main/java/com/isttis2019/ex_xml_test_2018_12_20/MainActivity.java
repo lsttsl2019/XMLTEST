@@ -5,16 +5,21 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+
+
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -39,7 +44,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    ListView listView;
+    RecyclerView recyclerView;
 
     AlertDialog.Builder builder;
     AlertDialog dialog;
@@ -74,79 +79,83 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        listView = findViewById(R.id.listview);
+        recyclerView= findViewById(R.id.recycler);
 
 
         inflater = getLayoutInflater();
 
         adatper = new MyAdatper(menbers, inflater);
-        listView.setAdapter(adatper);
+        recyclerView.setAdapter(adatper);
 
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-
-                menber = menbers.get(position);
-                String nam = menber.name;
-
-                String uris = "";
-
-                try {
-                    uris = URLEncoder.encode(nam, "utf-8");
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
+        getSupportActionBar().setTitle("영화검색");
 
 
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW);
+//        recyclerView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//            @Override
+//            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//                menber = menbers.get(position);
+//                String nam = menber.name;
+//
+//                String uris = "";
+//
+//                try {
+//                    uris = URLEncoder.encode(nam, "utf-8");
+//                } catch (UnsupportedEncodingException e) {
+//                    e.printStackTrace();
+//                }
+//
+//
+//                Intent browserIntent = new Intent(Intent.ACTION_VIEW);
+//
+//                PackageManager packageManager = getPackageManager();
+//
+//                Uri uri = Uri.parse("https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=" + uris);
+//
+//                browserIntent.setDataAndType(uri, "text/html");
+//
+//                List<ResolveInfo> list = packageManager.queryIntentActivities(browserIntent, 0);
+//
+//                for (ResolveInfo resolveInfo : list) {
+//
+//                    String activityName = resolveInfo.activityInfo.name;
+//
+//
+//                    Log.e("activityName", activityName);
+//
+//
+//                    if (activityName.contains("Browser")) {
+//
+//                        browserIntent =
+//
+//                                packageManager.getLaunchIntentForPackage(resolveInfo.activityInfo.packageName);
+//
+//                        ComponentName comp =
+//
+//                                new ComponentName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name);
+//
+//                        browserIntent.setAction(Intent.ACTION_VIEW);
+//
+//                        browserIntent.addCategory(Intent.CATEGORY_BROWSABLE);
+//
+//                        browserIntent.setComponent(comp);
+//
+//                        browserIntent.setData(uri);
+//
+//                        startActivity(browserIntent);
+//
+//                        break;
+//
+//                    }
+//
+//                }
+//
+//
+//                //  Toast.makeText(MainActivity.this, nam, Toast.LENGTH_SHORT).show();
+//                return false;
+//            }
+//        });
 
-                PackageManager packageManager = getPackageManager();
-
-                Uri uri = Uri.parse("https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=" + uris);
-
-                browserIntent.setDataAndType(uri, "text/html");
-
-                List<ResolveInfo> list = packageManager.queryIntentActivities(browserIntent, 0);
-
-                for (ResolveInfo resolveInfo : list) {
-
-                    String activityName = resolveInfo.activityInfo.name;
-
-
-                    Log.e("activityName", activityName);
-
-
-                    if (activityName.contains("Browser")) {
-
-                        browserIntent =
-
-                                packageManager.getLaunchIntentForPackage(resolveInfo.activityInfo.packageName);
-
-                        ComponentName comp =
-
-                                new ComponentName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name);
-
-                        browserIntent.setAction(Intent.ACTION_VIEW);
-
-                        browserIntent.addCategory(Intent.CATEGORY_BROWSABLE);
-
-                        browserIntent.setComponent(comp);
-
-                        browserIntent.setData(uri);
-
-                        startActivity(browserIntent);
-
-                        break;
-
-                    }
-
-                }
-
-
-                //  Toast.makeText(MainActivity.this, nam, Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
 
 
     }
@@ -342,8 +351,9 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Toast.makeText(MainActivity.this, "검색 완료", Toast.LENGTH_SHORT).show();
-                            Toast.makeText(MainActivity.this, menbers.size()+"", Toast.LENGTH_SHORT).show();
+
                             adatper.notifyDataSetChanged();
+
                         }
                     });
 
