@@ -88,74 +88,7 @@ public class MainActivity extends AppCompatActivity {
         adatper = new MyAdatper(menbers, inflater);
         recyclerView.setAdapter(adatper);
 
-        getSupportActionBar().setTitle("영화검색");
-
-
-//        recyclerView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//                menber = menbers.get(position);
-//                String nam = menber.name;
-//
-//                String uris = "";
-//
-//                try {
-//                    uris = URLEncoder.encode(nam, "utf-8");
-//                } catch (UnsupportedEncodingException e) {
-//                    e.printStackTrace();
-//                }
-//
-//
-//                Intent browserIntent = new Intent(Intent.ACTION_VIEW);
-//
-//                PackageManager packageManager = getPackageManager();
-//
-//                Uri uri = Uri.parse("https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=" + uris);
-//
-//                browserIntent.setDataAndType(uri, "text/html");
-//
-//                List<ResolveInfo> list = packageManager.queryIntentActivities(browserIntent, 0);
-//
-//                for (ResolveInfo resolveInfo : list) {
-//
-//                    String activityName = resolveInfo.activityInfo.name;
-//
-//
-//                    Log.e("activityName", activityName);
-//
-//
-//                    if (activityName.contains("Browser")) {
-//
-//                        browserIntent =
-//
-//                                packageManager.getLaunchIntentForPackage(resolveInfo.activityInfo.packageName);
-//
-//                        ComponentName comp =
-//
-//                                new ComponentName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name);
-//
-//                        browserIntent.setAction(Intent.ACTION_VIEW);
-//
-//                        browserIntent.addCategory(Intent.CATEGORY_BROWSABLE);
-//
-//                        browserIntent.setComponent(comp);
-//
-//                        browserIntent.setData(uri);
-//
-//                        startActivity(browserIntent);
-//
-//                        break;
-//
-//                    }
-//
-//                }
-//
-//
-//                //  Toast.makeText(MainActivity.this, nam, Toast.LENGTH_SHORT).show();
-//                return false;
-//            }
-//        });
+        getSupportActionBar().setTitle("주간박스오피스");
 
 
 
