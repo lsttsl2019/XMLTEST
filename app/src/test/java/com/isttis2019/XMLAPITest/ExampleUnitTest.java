@@ -1,4 +1,4 @@
-package com.isttis2019.ex_xml_test_2018_12_20;
+package com.isttis2019.XMLAPITest;
 
 import org.junit.Test;
 
